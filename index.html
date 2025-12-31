@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marcosra14</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Marcosra14</div>
+
+      <!-- Menú hamburguesa -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+      <ul class="nav-links">
+        <li><a href="#about">Sobre Mí</a></li>
+        <li><a href="#portfolio">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>¡Hola! Soy Marcos Rodríguez Álvarez</h1>
+    </section>
+
+    <section id="about" class="section fade-in">
+        <h2>Sobre Mí</h2>
+        <p class="justificado">Soy estudiante de 4º de Ingeniería Informática en la UAM, me gusta el desarrollo de software y la tecnología en general.</p>
+
+        <div class="timeline-container">
+          <h3>Cronología</h3>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4><img src="assets/logoINDEXA.png" alt="Logo Indexa Capital" class="timeline-logo"/> Indexa Capital</h4>
+                <p class="timeline-dates">Septiembre 2025 - Actualidad</p>
+                <p>Prácticas Curriculares</p>
+                
+                <div class="timeline-details">
+                  <hr>
+                  <ul>
+                    <li><strong>Fullstack Developer</strong></li>
+                    <li>Desarrollo de la aplicación de Indexa Capital</li>
+                  </ul>
+                  
+                  <div class="tech-pill-container">
+                    <span class="tech-pill">Symfony</span>
+                    <span class="tech-pill">Git</span>
+                    <span class="tech-pill">PHP</span>
+                    <span class="tech-pill">mySQL</span>
+                    <span class="tech-pill">Javascript</span>
+                    <span class="tech-pill">HTML</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4><img src="assets/logoUAM.png" alt="Logo UAM" class="timeline-logo"/> UAM</h4>
+                <p class="timeline-dates">2022 - 2026</p>
+                <p>Estudiante de 4º de Ingeniería Informática</p>
+
+                <div class="timeline-details">
+                  <hr>
+                  <ul>
+                    <li><strong>Ingeniería Informática</strong></li>
+                    <li>Conocimientos en todo lo relacionado con la Ingeniería Informática</li>
+                  </ul>
+                  
+                  <div class="tech-pill-container">
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">C</span>
+                    <span class="tech-pill">Java</span>
+                    <span class="tech-pill">PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section fade-in">
+      <h2>Mis Proyectos</h2>
+      <a href="rapidride.html" class="card">
+        <img src="assets/icono512x512.png" alt="Icono RapidRide" />
+        <div class="card-text">
+          <h3>RapidRide</h3>
+          <p>Un juego 2D para Android hecho en Unity. ¡Disponible ya en Google Play!</p>
+        </div>
+      </a>
+
+      <a href="#" class="card">
+        <img src="assets/engranajes.gif" alt="Proyecto en construcción" />
+        <div class="card-text">
+          <h3>Proyecto en Construcción</h3>
+          <p>Estoy trabajando en un nuevo proyecto. ¡Próximamente disponible!</p>
+          
+        </div>
+      </a>
+      <!-- <a href="https://www.flaticon.es/iconos-animados-gratis/sistema" title="sistema iconos animados">Sistema iconos animados creados por Freepik - Flaticon</a> -->
+    </section>
+
+    <section id="contact" class="section fade-in">
+      <h2>Contacto</h2>
+      <p>Puedes escribirme a: <strong>marcosra14@gmail.com</strong></p>
+      <div class="socials">
+        <a href="mailto:marcosra14@gmail.com">
+          <img src="assets/logoGMAIL.png" alt="Gmail" />
+        </a>
+        <a href="https://www.linkedin.com/in/marcos-rodriguez-alvarez-a9291127a" target="_blank">
+          <img src="assets/logoLINKEDIN.png" alt="LinkedIn" />
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Marcos Rodríguez Álvarez — Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+
+    // Cierra el menú si se hace clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.checked = false;
+      });
+    });
+
+    // Cierra el menú si se hace scroll con el menú desplegado
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+      if (menuToggle.checked) {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScrollTop) {
+          // Scroll hacia abajo
+          menuToggle.checked = false;
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Evita valores negativos
+      }
+    });
+  </script>
+
+
+</body>
+</html>

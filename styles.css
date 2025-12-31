@@ -1,0 +1,635 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #38bdf8;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0ea5e9;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1e293b;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #38bdf8;
+  text-shadow: 0 0 10px rgba(0, 171, 250, 0.8);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  transition: text-shadow 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  color: inherit;
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.nav-links li a:hover {
+  text-shadow: 0 0 10px rgba(0, 171, 250, 0.8);
+  color: #00abfa;
+  transform: scale(1.1);
+}
+
+/* Menú hamburguesa oculto por defecto */
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1e293b;
+    display: none;
+    padding: 1rem 2rem;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Mostrar menú cuando checkbox está activo */
+  .menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+}
+
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(-45deg, #1e3a8a, #0ea5e9, #1e3a8a, #0ea5e9, #1e3a8a);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite, shadowPulse 10s ease infinite;
+  color: #f1f5f9;
+  text-shadow: 0 0 10px rgba(0, 171, 250, 0.8);
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.5); /* color inicial */
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.5);
+  }
+  25% {
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.6);
+  }
+  50% {
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.6);
+  }
+  75% {
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.5);
+  }
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+}
+
+
+
+/* Sections */
+.section {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #38bdf8;
+  text-shadow: 0 0 10px rgba(0, 171, 250, 0.8);
+}
+
+.card {
+  background-color: #1e293b;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+  color: white;
+  cursor: pointer;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 171, 250, 0.5);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.card-text {
+  /* padding: 1rem; */
+  color: white;
+  flex: 1;
+  min-width: 200px;
+}
+
+.card-text h3 {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+/* Responsive: stack elements on small screens */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  .card-text {
+    text-align: center;
+  }
+}
+
+
+/* Contact */
+.socials {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.socials img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  background-color: #1e293b; /* fondo similar a las tarjetas */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* misma sombra que las cards */
+}
+
+.socials img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 171, 250, 0.5);
+}
+
+/* Footer */
+footer {
+  background-color: #1e293b;
+  color: #94a3b8;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Scroll suave al hacer clic en anclas */
+html {
+    scroll-behavior: smooth;
+}
+
+.project-details {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  flex-wrap: wrap;
+}
+
+.project-details img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.project-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project-info li {
+  margin-bottom: 0.5rem;
+}
+
+.project-details img {
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+  .project-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-details img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .project-info ul {
+    padding: 0 1rem;
+  }
+}
+
+
+.back-button {
+  background-color: #0ea5e9;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  margin: 8rem auto 2rem auto; /* ⬅️ Esto lo centra horizontalmente */
+  width: fit-content; /* ⬅️ Se ajusta al contenido */
+  transition: transform 0.3s ease;
+  transform: translateY(-50%);
+}
+
+.back-button:hover {
+  background-color: #ffffff;
+  transform: translateY(-50%) scale(2);
+}
+
+.icon-house {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* ajusta este valor según tu diseño */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+p + p {
+  margin-top: 1.25rem;
+}
+
+.justificado {
+  text-align: justify;
+  /* max-width: 800px;
+  margin: 0 auto; */
+}
+
+/* Estructura para que el footer quede abajo rapidride */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+/* --- Timeline (Cronología) --- */
+.timeline-container {
+  margin-top: 3rem;
+  padding: 1rem;
+  background-color: #1e293b; /* Fondo similar al de las tarjetas */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.timeline-container h3 {
+  color: #38bdf8;
+  text-shadow: 0 0 8px rgba(0, 171, 250, 0.8);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Línea vertical de la cronología */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: linear-gradient(to bottom, #38bdf8, #0ea5e9, #38bdf8);
+  top: 0;
+  bottom: 0;
+  left: 50%; /* Centra la línea */
+  margin-left: -2px;
+  box-shadow: 0 0 10px rgba(0, 171, 250, 0.8);
+}
+
+.timeline-item {
+  padding: 10px 0;
+  position: relative;
+  width: 50%; /* 50% para que los ítems estén a ambos lados */
+  opacity: 0; /* Inicialmente oculto para animación */
+  transform: translateY(20px);
+  animation: slideIn 1s ease forwards; /* Animación de entrada */
+}
+
+/* Retraso de animación para que sea más fluido y se vean uno tras otro */
+.timeline-item:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Ítems a la izquierda */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 30px; /* Espacio para el punto y la línea */
+}
+
+/* Ítems a la derecha */
+.timeline-item:nth-child(even) {
+  left: 50%;
+  padding-left: 30px; /* Espacio para el punto y la línea */
+}
+
+.timeline-content {
+  padding: 15px;
+  background-color: #0f172a;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  border: 1px solid #38bdf8;
+  /* Aumentamos la duración y simplificamos la transición general */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer; /* Aseguramos que se vea interactivo */
+}
+
+/* Detalles Ocultos */
+.timeline-details {
+  max-height: 0; /* Oculta la información por defecto */
+  opacity: 0;
+  overflow: hidden;
+  padding-top: 0;
+  /* Hacemos la transición de max-height más lenta y uniforme (ease-in-out) */
+  transition: max-height 0.6s ease-in-out, 
+              opacity 0.6s ease-in-out,
+              padding-top 0.6s ease-in-out; 
+}
+
+.timeline-details hr {
+  border: none;
+  border-top: 1px solid #38bdf850;
+  margin: 10px 0;
+}
+.timeline-details ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 0.9rem;
+}
+
+.timeline-details li {
+  margin-bottom: 5px;
+  color: #cbd5e1;
+}
+
+
+
+/* Efecto Hover: Muestra los detalles */
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(56, 189, 248, 0.5); 
+  background-color: #1e293b; 
+}
+
+.timeline-content:hover .timeline-details {
+  max-height: 200px; /* Mantener un valor generoso */
+  opacity: 1;
+  padding-top: 10px;
+}
+
+.timeline-content h4 {
+  display: flex;
+  align-items: center;
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin-top: 0.25rem;
+}
+
+.timeline-dates {
+  font-weight: 600;
+  color: #38bdf8;
+  font-size: 0.9rem !important;
+}
+
+.timeline-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+
+/* Punto de la cronología */
+.timeline-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #0ea5e9;
+  border: 3px solid #1e293b; /* Color de fondo del body */
+  top: 30px;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 10px #0ea5e9, 0 0 20px #0ea5e9; /* Efecto de brillo */
+}
+
+/* Posición de los puntos */
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -8px; /* - (ancho_dot/2 + ancho_linea/2) */
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -8px; /* - (ancho_dot/2 + ancho_linea/2) */
+}
+
+    /* --- Estilos para las Cajitas (Tech Pills) --- */
+  .tech-pill-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 8px; /* Espacio entre las cajitas */
+    margin-top: 15px; 
+    padding-top: 5px;
+  }
+
+  .tech-pill {
+    /* Fondo transparente y borde/texto azul */
+    background-color: transparent; 
+    color: #38bdf8; 
+    padding: 5px 12px;
+    border: 1px solid #38bdf8;
+    /* Borde redondeado para la forma de píldora */
+    border-radius: 999px; 
+    font-size: 0.8rem; 
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  }
+
+  .tech-pill:hover {
+    /* Efecto hover: se rellena de azul y texto oscuro */
+    background-color: #38bdf8;
+    color: #0f172a; 
+    transform: translateY(-1px);
+  }
+
+
+/* Media Query para pantallas pequeñas (Movil: apila la cronología) */
+@media (max-width: 768px) {
+  .timeline {
+    padding: 0;
+  }
+
+  /* La línea vertical se mueve a la izquierda */
+  .timeline::after {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 50px; /* Nuevo espacio a la izquierda de los ítems */
+    padding-right: 5px;
+  }
+
+  /* Los puntos se ajustan a la nueva posición de la línea */
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: 12px; /* Posición junto a la línea */
+    right: auto;
+  }
+
+  /* El contenido se alinea a la izquierda */
+  .timeline-content {
+    text-align: left;
+  }
+}
+
