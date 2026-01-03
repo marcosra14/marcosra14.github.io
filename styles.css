@@ -1,3 +1,14 @@
+/* Variables Globales */
+:root {
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --primary: #38bdf8;
+  --primary-hover: #0ea5e9;
+  --text-main: #f8fafc;
+  --text-dim: #cbd5e1;
+  --shadow-glow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
 /* Reset */
 * {
   margin: 0;
@@ -186,11 +197,14 @@ a:hover {
   padding: 1rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
+  border: 1px solid transparent;
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 171, 250, 0.5);
+  border-color: var(--primary);
+  background-color: #243146;
 }
 
 .card img {
@@ -481,14 +495,10 @@ html, body {
 
 /* Detalles Ocultos */
 .timeline-details {
-  max-height: 0; /* Oculta la información por defecto */
+  max-height: 0;
   opacity: 0;
   overflow: hidden;
-  padding-top: 0;
-  /* Hacemos la transición de max-height más lenta y uniforme (ease-in-out) */
-  transition: max-height 0.6s ease-in-out, 
-              opacity 0.6s ease-in-out,
-              padding-top 0.6s ease-in-out; 
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-details hr {
@@ -517,9 +527,10 @@ html, body {
 }
 
 .timeline-content:hover .timeline-details {
-  max-height: 200px; /* Mantener un valor generoso */
+  max-height: 1000px; /* Valor seguro para contenido dinámico */
   opacity: 1;
-  padding-top: 10px;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 
 .timeline-content h4 {
@@ -571,35 +582,31 @@ html, body {
   left: -8px; /* - (ancho_dot/2 + ancho_linea/2) */
 }
 
-    /* --- Estilos para las Cajitas (Tech Pills) --- */
-  .tech-pill-container {
+/* --- Estilos para las Cajitas (Tech Pills) --- */
+.tech-pill-container {
     display: flex;
-    flex-wrap: wrap; 
-    gap: 8px; /* Espacio entre las cajitas */
-    margin-top: 15px; 
-    padding-top: 5px;
-  }
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
 
-  .tech-pill {
-    /* Fondo transparente y borde/texto azul */
-    background-color: transparent; 
-    color: #38bdf8; 
-    padding: 5px 12px;
-    border: 1px solid #38bdf8;
-    /* Borde redondeado para la forma de píldora */
-    border-radius: 999px; 
-    font-size: 0.8rem; 
-    font-weight: 600;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-  }
+.tech-pill {
+  background-color: rgba(56, 189, 248, 0.1); /* Fondo sutil */
+  color: var(--primary);
+  padding: 4px 10px;
+  border: 1px solid var(--primary);
+  border-radius: 6px; /* Estilo más moderno que píldora total */
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap; /* Evita que la palabra se parta */
+}
 
-  .tech-pill:hover {
-    /* Efecto hover: se rellena de azul y texto oscuro */
-    background-color: #38bdf8;
-    color: #0f172a; 
-    transform: translateY(-1px);
-  }
+.tech-pill:hover {
+/* Efecto hover: se rellena de azul y texto oscuro */
+background-color: #38bdf8;
+color: #0f172a; 
+transform: translateY(-1px);
+}
 
 
 /* Media Query para pantallas pequeñas (Movil: apila la cronología) */
