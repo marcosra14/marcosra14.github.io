@@ -90,6 +90,7 @@ a:hover {
 
 /* Responsive navbar */
 @media (max-width: 768px) {
+  /* Menú: animación de despliegue */
   .nav-links {
     flex-direction: column;
     position: absolute;
@@ -97,21 +98,94 @@ a:hover {
     left: 0;
     width: 100%;
     background-color: #1e293b;
-    display: none;
-    padding: 1rem 2rem;
+
+    /* En vez de display:none -> animable */
+    display: flex;
+    gap: 0;
+    padding: 0 2rem;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+
+    transition:
+      max-height 0.45s cubic-bezier(0.2, 0.9, 0.2, 1),
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      padding 0.25s ease;
   }
 
   .nav-links li {
-    margin: 1rem 0;
+    margin: 0;
+    padding: 0.9rem 0;
+    border-top: 1px solid rgba(56, 189, 248, 0.12);
   }
 
+  .nav-links li:first-child {
+    border-top: none;
+  }
+  /* Botón hamburguesa animado */
   .hamburger {
     display: block;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   }
 
-  /* Mostrar menú cuando checkbox está activo */
+  .hamburger:hover {
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+  }
+
+  .hamburger:active {
+    transform: scale(0.96);
+  }
+
+  .hamburger span {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    height: 3px;
+    border-radius: 3px;
+    background: #ffffff;
+    transition: transform 0.35s ease, opacity 0.25s ease, top 0.35s ease;
+  }
+
+  .hamburger span:nth-child(1) { top: 14px; }
+  .hamburger span:nth-child(2) { top: 21px; }
+  .hamburger span:nth-child(3) { top: 28px; }
+
+  /* Abierto */
   .menu-toggle:checked ~ .nav-links {
-    display: flex;
+    max-height: 320px; /* ajusta si añades más links */
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    padding: 0.6rem 2rem 1rem 2rem;
+  }
+
+    /* Transformación a X */
+  .menu-toggle:checked + .hamburger span:nth-child(1) {
+    top: 21px;
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(3) {
+    top: 21px;
+    transform: rotate(-45deg);
+  }
+
+  /* Efecto “glow” cuando está abierto */
+  .menu-toggle:checked + .hamburger {
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.55);
   }
 }
 
