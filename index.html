@@ -3,25 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Portfolio de Marcos Rodríguez Álvarez - Estudiante de Ingeniería Informática y Fullstack Developer">
+  <meta name="description" content="Portfolio de Marcos Rodríguez Álvarez — Estudiante de Ingeniería Informática y Fullstack Developer." />
   <title>Marcosra14</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Marcosra14</div>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
-      <!-- Menú hamburguesa -->
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
-      <label for="menu-toggle" class="hamburger" aria-label="Abrir menú">
-          <span></span>
-          <span></span>
-          <span></span>
-      </label>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="logo">
+        <a href="index.html" aria-label="Inicio">Marcosra14</a>
+      </div>
 
-      <ul class="nav-links">
+      <button
+        class="hamburger"
+        type="button"
+        aria-label="Abrir menú"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul id="primary-nav" class="nav-links">
         <li><a href="#about">Sobre Mí</a></li>
         <li><a href="#portfolio">Proyectos</a></li>
         <li><a href="#contact">Contacto</a></li>
@@ -29,103 +40,112 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero">
       <h1>¡Hola! Soy Marcos Rodríguez Álvarez</h1>
+      <p>Estudiante de 4º de Ingeniería Informática (UAM) · Fullstack Developer</p>
     </section>
 
     <section id="about" class="section fade-in">
-        <h2>Sobre Mí</h2>
-        <p class="justificado">Soy estudiante de 4º de Ingeniería Informática en la UAM, me gusta el desarrollo de software y la tecnología en general.</p>
+      <h2>Sobre Mí</h2>
+      <p class="justificado">
+        Me gusta el desarrollo de software y la tecnología en general.
+      </p>
 
-        <div class="timeline-container">
-          <h3>Cronología</h3>
-          <div class="timeline">
+      <div class="timeline-container" aria-label="Cronología">
+        <h3>Cronología</h3>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h4><img src="assets/logoINDEXA.png" alt="Logo Indexa Capital" class="timeline-logo"/> Indexa Capital</h4>
-                <p class="timeline-dates">Septiembre 2025 - Actualidad</p>
-                <p>Contrato de Prácticas</p>
-                
-                <div class="timeline-details">
-                  <hr>
-                  <ul>
-                    <li><strong>Fullstack Developer</strong></li>
-                    <li>Desarrollo de la aplicación de Indexa Capital</li>
-                  </ul>
-                  
-                  <div class="tech-pill-container">
-                    <span class="tech-pill">Symfony</span>
-                    <span class="tech-pill">Git</span>
-                    <span class="tech-pill">PHP</span>
-                    <span class="tech-pill">mySQL</span>
-                    <span class="tech-pill">Javascript</span>
-                    <span class="tech-pill">HTML</span>
-                  </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content" tabindex="0">
+              <h4>
+                <img src="assets/logoINDEXA.png" alt="Logo Indexa Capital" class="timeline-logo" width="24" height="24" />
+                Indexa Capital
+              </h4>
+              <p class="timeline-dates">Septiembre 2025 - Actualidad</p>
+              <p>Contrato de Prácticas</p>
+
+              <div class="timeline-details">
+                <hr>
+                <ul>
+                  <li><strong>Fullstack Developer</strong></li>
+                  <li>Desarrollo de la aplicación de Indexa Capital</li>
+                </ul>
+
+                <div class="tech-pill-container" aria-label="Tecnologías">
+                  <span class="tech-pill">Symfony</span>
+                  <span class="tech-pill">Git</span>
+                  <span class="tech-pill">PHP</span>
+                  <span class="tech-pill">MySQL</span>
+                  <span class="tech-pill">JavaScript</span>
+                  <span class="tech-pill">HTML</span>
                 </div>
               </div>
             </div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h4><img src="assets/logoUAM.png" alt="Logo UAM" class="timeline-logo"/> UAM - GII</h4>
-                <p class="timeline-dates">2022 - 2026</p>
-                <p>Estudiante de 4º de Ingeniería Informática</p>
-
-                <div class="timeline-details">
-                  <hr>
-                  <ul>
-                    <li><strong>Ingeniería Informática</strong></li>
-                    <li>Conocimientos en todo lo relacionado con la Ingeniería Informática</li>
-                  </ul>
-                  
-                  <div class="tech-pill-container">
-                    <span class="tech-pill">Python</span>
-                    <span class="tech-pill">C</span>
-                    <span class="tech-pill">Java</span>
-                    <span class="tech-pill">PostgreSQL</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
           </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content" tabindex="0">
+              <h4>
+                <img src="assets/logoUAM.png" alt="Logo UAM" class="timeline-logo" width="24" height="24" />
+                UAM - GII
+              </h4>
+              <p class="timeline-dates">2022 - 2026</p>
+              <p>Estudiante de 4º de Ingeniería Informática</p>
+
+              <div class="timeline-details">
+                <hr>
+                <ul>
+                  <li><strong>Ingeniería Informática</strong></li>
+                  <li>Conocimientos en todo lo relacionado con la Ingeniería Informática</li>
+                </ul>
+
+                <div class="tech-pill-container" aria-label="Tecnologías">
+                  <span class="tech-pill">Python</span>
+                  <span class="tech-pill">C</span>
+                  <span class="tech-pill">Java</span>
+                  <span class="tech-pill">PostgreSQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
     </section>
 
     <section id="portfolio" class="section fade-in">
       <h2>Mis Proyectos</h2>
+
       <a href="rapidride.html" class="card">
-        <img src="assets/icono512x512.png" alt="Icono RapidRide" loading="lazy" />
+        <img src="assets/icono512x512.png" alt="Icono RapidRide" loading="lazy" width="100" height="100" />
         <div class="card-text">
           <h3>RapidRide</h3>
           <p>Un juego 2D para Android hecho en Unity. ¡Disponible ya en Google Play!</p>
         </div>
       </a>
 
-      <a href="#" class="card">
-        <img src="assets/engranajes.gif" alt="Proyecto en construcción" />
+      <a href="#" class="card" aria-disabled="true">
+        <img src="assets/engranajes.gif" alt="Proyecto en construcción" loading="lazy" width="100" height="100" />
         <div class="card-text">
           <h3>Proyecto en Construcción</h3>
           <p>Estoy trabajando en un nuevo proyecto. ¡Próximamente disponible!</p>
-          
         </div>
       </a>
-      <!-- <a href="https://www.flaticon.es/iconos-animados-gratis/sistema" title="sistema iconos animados">Sistema iconos animados creados por Freepik - Flaticon</a> -->
     </section>
 
     <section id="contact" class="section fade-in">
       <h2>Contacto</h2>
-      <p>Puedes escribirme a: <strong>marcosra14@gmail.com</strong></p>
-      <div class="socials">
-        <a href="mailto:marcosra14@gmail.com">
-          <img src="assets/logoGMAIL.png" alt="Gmail" />
+      <p>Puedes escribirme a: <strong><a href="mailto:marcosra14@gmail.com">marcosra14@gmail.com</a></strong></p>
+
+      <div class="socials" aria-label="Redes sociales">
+        <a href="mailto:marcosra14@gmail.com" aria-label="Enviar correo a Marcos">
+          <img src="assets/logoGMAIL.png" alt="" loading="lazy" width="60" height="60" />
         </a>
-        <a href="https://www.linkedin.com/in/marcos-rodriguez-alvarez-a9291127a" target="_blank">
-          <img src="assets/logoLINKEDIN.png" alt="LinkedIn" />
+        <a href="https://www.linkedin.com/in/marcos-rodriguez-alvarez-a9291127a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Marcos (se abre en una pestaña nueva)">
+          <img src="assets/logoLINKEDIN.png" alt="" loading="lazy" width="60" height="60" />
         </a>
       </div>
     </section>
@@ -134,31 +154,6 @@
   <footer>
     <p>&copy; 2025 Marcos Rodríguez Álvarez</p>
   </footer>
-
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-
-    // Cierra el menú si se hace clic en un enlace
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.checked = false;
-      });
-    });
-
-    // Cierra el menú si se hace scroll con el menú desplegado
-    let lastScrollTop = 0;
-    window.addEventListener('scroll', () => {
-      if (menuToggle.checked) {
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        if (currentScroll > lastScrollTop) {
-          // Scroll hacia abajo
-          menuToggle.checked = false;
-        }
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Evita valores negativos
-      }
-    });
-  </script>
-
-
 </body>
+<script src="script.js" defer></script>
 </html>
