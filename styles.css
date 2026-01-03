@@ -499,6 +499,8 @@ html, body {
   opacity: 0;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex; 
+  flex-direction: column;
 }
 
 .timeline-details hr {
@@ -587,7 +589,8 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-top: 12px;
+    margin-top: auto; /* Esto empuja las pills al final del contenedor */
+    padding-top: 12px;
 }
 
 .tech-pill {
@@ -613,30 +616,41 @@ transform: translateY(-1px);
 @media (max-width: 768px) {
   .timeline {
     padding: 0;
+    display: flex; /* Añadimos flex al contenedor padre */
+    flex-direction: column;
+    align-items: stretch; /* Esto obliga a los hijos a estirarse al mismo ancho */
   }
 
   /* La línea vertical se mueve a la izquierda */
   .timeline::after {
     left: 20px;
+    z-index: 1;
   }
 
-  .timeline-item {
+  /* Fuerza MISMAS reglas para odd y even en móvil */
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
     width: 100%;
     left: 0 !important;
-    padding-left: 50px; /* Nuevo espacio a la izquierda de los ítems */
-    padding-right: 5px;
+    padding-left: 50px;
+    padding-right: 20px;
+    box-sizing: border-box;
   }
 
   /* Los puntos se ajustan a la nueva posición de la línea */
   .timeline-item:nth-child(odd) .timeline-dot,
   .timeline-item:nth-child(even) .timeline-dot {
-    left: 12px; /* Posición junto a la línea */
+    left: 12px;
     right: auto;
   }
 
-  /* El contenido se alinea a la izquierda */
+  /* El contenido se alinea a la izquierda y se expande */
   .timeline-content {
     text-align: left;
+    width: 100%; /* Ocupa todo el ancho del timeline-item */
+    box-sizing: border-box; 
+    display: block; 
   }
 }
 
